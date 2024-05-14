@@ -1,4 +1,4 @@
-# Time
+# TimeCick
  Alkatras Скрипт автоматизации
 README для скрипта автоматизации Alkatras
 
