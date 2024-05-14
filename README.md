@@ -1,4 +1,4 @@
-# Tame
+# Time
  Alkatras Скрипт автоматизации
 README для скрипта автоматизации Alkatras
 
