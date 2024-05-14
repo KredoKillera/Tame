@@ -1,0 +1,45 @@
+from tkinter import *
+from datetime import datetime, timedelta
+import pyautogui
+print('*'* 20, 'Alkatras', '*'*20)
+# Ваш код для выполнения задач
+
+def run_script():
+    # Получаем значение из Spinbox и конвертируем в int
+    hours = int(hours_spinbox.get())
+    timeStart = datetime.now() # текущие время и дата
+    timeFinish = timeStart + timedelta(hours=hours)
+    print('*' * 5, "Скрипт запущен, время завершения через", hours, "час(ов)", '*' * 5)
+    while timeStart < timeFinish:
+        button = pyautogui.locateOnScreen('Buttons/alkatras.PNG',confidence =0.6)
+        if button:
+            pyautogui.moveTo(button,duration = 2)
+            pyautogui.click(button)
+            pyautogui.sleep(2)
+            pyautogui.click('Buttons/zakrit.PNG')
+            pyautogui.sleep(2)
+            pyautogui.click('Buttons/zakrit2.PNG')
+            pyautogui.sleep(2)
+            pyautogui.click('Buttons/exit.PNG')
+            break
+        timeStart = datetime.now() # обновляем текущее время
+
+root = Tk()
+root.geometry('250x325')
+root.title("Алькатрас")
+fra1= Frame(root,width=10,height=33,bg='#A9A9A9')
+fra1.pack()
+
+# Метка для пояснения
+label = Label(fra1, text="Введите время ожидания (часы):")
+label.pack()
+# Виджет для ввода количества часов
+hours_spinbox = Spinbox(fra1,from_=1, to=24, width=5)
+hours_spinbox.pack(pady=10)
+
+# создание кнопки
+run_button = Button(fra1,text="Старт", command=run_script)
+run_button.pack()
+
+root.mainloop()
+
